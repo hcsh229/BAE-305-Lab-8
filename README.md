@@ -73,7 +73,12 @@ Steps 1-4:
 We reused an Arduino sketch from a previous project which allowed serial control of the robot. The program defined motor pins, accepted serial character input, and translated it into directional movement commands (‘f’ for forward, ‘b’ for backward). Motor speed and direction were set through digital writes and PWM signals.
 
 Step 5-9:
-When we tested the application we developed, we were unable to use the app to run the motors. However, we later identified the issue in our Arduino code, where we had initialized the Tx and Rx pins incorrectly. We had initialized the Tx and Rx pins on the RedBoard in such a way that the Tx of the RedBoard connected to the Tx of the HC-05. This explains why even though we could get the direct connection to drive the motors, we couldn’t receive the correct data from Bluetooth. Despite this, the application functioned as desired, connecting to the HC-05 and displaying the connection status.
+When we tested the application we developed, we were unable to use the app to run the motors. However, we later identified the issue in our Arduino code, where we had initialized the Tx and Rx pins incorrectly. We had initialized the Tx and Rx pins on the RedBoard in such a way that the Tx of the RedBoard connected to the Tx of the HC-05. This explains why even though we could get the direct connection to drive the motors, we couldn’t receive the correct data from Bluetooth. Despite this, the application functioned as desired, connecting to the HC-05 and displaying the connection status. The user interface we designed was simple and focused on including all the functions as simply as possible. We added buttons with names representing the response that the car should have when they were pressed. The “BT connection?” label is a marker displaying whether a successful Bluetooth connection was made, and would turn green if this happened. The final design can be seen below:
+
+![image](https://github.com/user-attachments/assets/cf475d76-0998-4f68-9606-fd12f5c1f7bd)
+
+Figure 9: Android application user interface design
+
 # Discussion:
 Part 1: In Lab 6 we found out what was the minimum speed that will move the motors. What is the minimum speed that will move the complete car?
 -	When testing this, we were seeing that our car wouldn’t move at any motor speed under 125. This is reflected in our code. However, after further testing we realized that we were not using the binder clip in the most efficient orientation. After fixing this, we found that the minimum motor speed to move the car is closer to about 100.
